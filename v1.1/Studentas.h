@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <list>
 #include <deque>
+#include <limits.h>
 
 using std::cin;
 using std::cout;

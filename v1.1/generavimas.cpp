@@ -28,7 +28,9 @@ void naujas_failas(string failo_pav, int studSk, int ndSk)
 	{
 		rezultatas << studentas(ndSk);
 	}
-	std::ofstream out(failo_pav);
+	//std::ofstream out(failo_pav);
+	std::fstream out;
+	out.open(failo_pav, std::ios::out);
 	out << rezultatas.rdbuf();
 	out.close();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - S;
