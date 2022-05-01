@@ -27,24 +27,19 @@ Visa programa padalinta į 6 skirtingus projektus, kuriuose skiriasi naudojamų 
 
 Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 ### Programos testavimas 1 Strategija
-|                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
-| ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
-|VECTOR NUSKAITYMAS   |   0.0050705  s  |   0.0542667 s  |    1.1054702 s  |  5.8535487 s  |  48.2533813  s |
-|VECTOR RŪŠIAVIMAS    |    0.0005734 s  |  0.0027843  s  |  0.0645698 s  | 0.4230344 s  |   4.6411322 s |
-|DEQUE NUSKAITYMAS    |    0.0067343  s  |  0.0757928  s  |   0.6830037  s  |  5.5572856 s  |  47.6993885  s |
-|DEQUE RŪŠIAVIMAS     |   0.0003509  s  |   0.0033527 s  |   0.0564063 s  |  0.5610498 s  |   8.2776468 s |
-|LIST NUSKAITYMAS     |    0.0046577   s  |  0.065901  s  |  0.5489129  s  |  6.9026929 s  |   52.041484  s |
-|LIST RŪŠIAVIMAS      |   0.0001747  s  |   0.0024723 s  |  0.0455286 s  | 0.5807186 s  |  5.0140171  s |
+|                     |     100000    |   1000000   |
+| ------------------- | ------------- | ----------- |
+|   |     s  |     s  |
+|    |     s  |   s  |
 
-### Programos testavimas 2 Strategija
-|                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
-| ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
-|VECTOR NUSKAITYMAS   |   0.004704  s   |  0.0451099  s  |   0.6529759 s  |  6.8203377 s  |  61.1772038  s |
-|VECTOR RŪŠIAVIMAS    |  0.0002079  s   |   0.0017861 s  |  0.0403011 s  | 0.4540384 s  |  3.437869  s |
-|DEQUE NUSKAITYMAS    |  0.008084  s   |   0.0565  s  |  0.5918791  s  | 6.7688053  s  |  53.8086819  s |
-|DEQUE RŪŠIAVIMAS     |  0.0004801  s   |   0.0033341 s  |  0.048982 s  | 0.6963034 s  |   4.9461535 s |
-|LIST NUSKAITYMAS     |   0.0047636  s   |  0.0619921  s  |   0.6905565 s  | 6.5649261  s  |   42.6511148 s |
-|LIST RŪŠIAVIMAS      |  0.0001576  s   |  0.0045202  s  | 0.0487407  s  | 0.5845098 s  |   6.6370795 s |
+
+### Programos testavimas visos programos veikimo laikas naudojant vektorius
+|                     |       1000      |      10000     |     100000    |   1000000   |
+| ------------------- | --------------- | -------------- | ------------- | ----------- |
+|  O1 |    0.015031 s   |   0.135996 s  |   1.341997 s  |  13.696159 s  |
+| O2  |  0.017014  s   |   0.083013 s  | 1.305035  s  | 13.301999 s  |
+|  O3 |  0.016047  s   |   0.128994  s  |  1.176997  s  |  14.405094 s  | 
+
 
 Testavimo išvados:
 1. Nors 1 testavimo strategija (nauji sąrašai užpildomi ir originalus ištrinamas tik darbui baigus) dirba greičiau, šis būdas "valgo" labai daug atminties, todėl ant mažai RAM turinčių kompiuterių programa gali neveikti.
