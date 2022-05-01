@@ -1,6 +1,6 @@
 #pragma once
 
-#include "data.h"
+#include "Studentas.h"
 
 bool desimtbale(int n);
 int kintamojo_tipas();

@@ -1,51 +1,38 @@
 #include "rusiavimas.h"
 
-bool pagal_varda(data a, data b)
-{
-	return a.vardas < b.vardas;
-}
-bool pagal_pavarde(data a, data b)
-{
-	return a.pavarde < b.pavarde;
-}
-bool pagal_pazymi(data a, data b)
-{
-	return a.result > b.result;
-}
-void studentu_skirtymas(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji)
+void studentu_skirtymas(vector<Studentas>& sarasas, vector<Studentas>& pirmunai, vector<Studentas>& nuskriaustieji)
 {
 	sort(sarasas.begin(), sarasas.end(), pagal_pazymi);
-
 	auto x = std::chrono::high_resolution_clock::now();
-	vector<data> ::iterator it = sarasas.end();
+	vector<Studentas> ::iterator it = sarasas.end();
 	it--;
 	for (int i = sarasas.size() - 1; i > 0; i--)
 	{
-		if (it->result < 5)
+		if (it->getResult() < 5)
 		{
 			nuskriaustieji.push_back(*it);
-			sarasas.resize(sarasas.size());
+			sarasas.resize(sarasas.size()-1);
 		}
 		it--;
 	}	
 	pirmunai = sarasas;	
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 
 }
-void studentu_skirtymas(list<data>& sarasas, list<data>& pirmunai, list<data>& nuskriaustieji)
+void studentu_skirtymas(list<Studentas>& sarasas, list<Studentas>& pirmunai, list<Studentas>& nuskriaustieji)
 {
-	sarasas.sort(pagal_pazymi);
+	sarasas.sort(pagal_pazymi_2);
 	auto x = std::chrono::high_resolution_clock::now();
 
-	list<data> ::iterator it = sarasas.end();
+	list<Studentas> ::iterator it = sarasas.end();
 	it--;
 
 	for (auto i = sarasas.size() - 1; i > 0; i--)
 	{
 		//advance(it, i);
-		if (it->result >= 5)
+		if (it->getResult() >= 5)
 		{
 			pirmunai.push_back(*it);
 		}
@@ -55,17 +42,17 @@ void studentu_skirtymas(list<data>& sarasas, list<data>& pirmunai, list<data>& n
 	nuskriaustieji = sarasas;
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 }
-void studentu_skirtymas(deque<data>& sarasas, deque<data>& pirmunai, deque<data>& nuskriaustieji)
+void studentu_skirtymas(deque<Studentas>& sarasas, deque<Studentas>& pirmunai, deque<Studentas>& nuskriaustieji)
 {
 	sort(sarasas.begin(), sarasas.end(), pagal_pazymi);
 	auto x = std::chrono::high_resolution_clock::now();
-	deque<data> ::iterator it = sarasas.end();
+	deque<Studentas> ::iterator it = sarasas.end();
 	it--;
 	for (auto i = sarasas.size() - 1; i > 0; i--)
 	{
-		if (it->result < 5)
+		if (it->getResult() < 5)
 		{
 			nuskriaustieji.push_back(*it);
 			sarasas.resize(sarasas.size() - 1);
@@ -76,14 +63,15 @@ void studentu_skirtymas(deque<data>& sarasas, deque<data>& pirmunai, deque<data>
 	pirmunai = sarasas;
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 }
-void studentu_skirtymas_1(deque<data>& sarasas, deque<data>& pirmunai, deque<data>& nuskriaustieji)
+void studentu_skirtymas_1(deque<Studentas>& sarasas, deque<Studentas>& pirmunai, deque<Studentas>& nuskriaustieji)
 {
+	sort(sarasas.begin(), sarasas.end(), pagal_pazymi);
 	auto x = std::chrono::high_resolution_clock::now();
 	for (auto& s : sarasas)
 	{
-		if (s.result < 5)
+		if (s.getResult() < 5)
 		{
 			nuskriaustieji.push_back(s);
 		}
@@ -94,14 +82,15 @@ void studentu_skirtymas_1(deque<data>& sarasas, deque<data>& pirmunai, deque<dat
 	}
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 }
-void studentu_skirtymas_1(list<data>& sarasas, list<data>& pirmunai, list<data>& nuskriaustieji)
+void studentu_skirtymas_1(list<Studentas>& sarasas, list<Studentas>& pirmunai, list<Studentas>& nuskriaustieji)
 {
+	sarasas.sort(pagal_pazymi);
 	auto x = std::chrono::high_resolution_clock::now();
 	for (auto& s : sarasas)
 	{
-		if (s.result < 5)
+		if (s.getResult() < 5)
 		{
 			nuskriaustieji.push_back(s);
 		}
@@ -112,14 +101,15 @@ void studentu_skirtymas_1(list<data>& sarasas, list<data>& pirmunai, list<data>&
 	}
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 }
-void studentu_skirtymas_1(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji)
+void studentu_skirtymas_1(vector<Studentas>& sarasas, vector<Studentas>& pirmunai, vector<Studentas>& nuskriaustieji)
 {
+	sort(sarasas.begin(), sarasas.end(), pagal_pazymi);
 	auto x = std::chrono::high_resolution_clock::now();
 	for (auto& s : sarasas)
 	{
-		if (s.result < 5)
+		if (s.getResult() < 5)
 		{
 			nuskriaustieji.push_back(s);
 		}
@@ -130,5 +120,5 @@ void studentu_skirtymas_1(vector<data>& sarasas, vector<data>& pirmunai, vector<
 	}
 	sarasas.clear();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Studentu dalinimas uztruko: " << std::setprecision(15) << diff.count() << " s" << endl;
 }

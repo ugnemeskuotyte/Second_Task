@@ -1,4 +1,4 @@
-#include "data.h"
+#include "Studentas.h"
 #include "validacija.h"
 #include "inout.h"
 #include "skaic.h"
@@ -46,9 +46,11 @@ int main()
 			cout << "Jei norite duomenis rasyti ranka spauskite 1, jei skaityti is failo spauskite 0: ";
 			r = vienas_nulis();
 			cin.ignore();
-			cout << "Iveskite failo pavadinima: ";
-			getline(cin, failo_pav);
-			failo_pav.empty() ? failo_pav = "studentai.txt" : failo_pav += ".txt";
+			if (r == false) {
+				cout << "Iveskite failo pavadinima: ";
+				getline(cin, failo_pav);
+				failo_pav.empty() ? failo_pav = "studentai.txt" : failo_pav += ".txt";
+			}
 		}
 
 		if (r == false)
@@ -60,12 +62,12 @@ int main()
 			arVM = vienas_nulis();
 			if (tipas == 0)
 			{
-				vector<data> sarasas;
+				vector<Studentas> sarasas;
 				buffer_skaitymas(sarasas, failo_pav);
 				skaiciavimas(sarasas, arVM);
-				vector<data> pirmunai;
-				vector<data> nuskriaustieji;
-				if(strategija)
+				vector<Studentas> pirmunai;
+				vector<Studentas> nuskriaustieji;
+				if(strategija==true)
 					studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
 				else
 					studentu_skirtymas_1(sarasas, pirmunai, nuskriaustieji);
@@ -84,16 +86,16 @@ int main()
 				buffer_rasymas(pirmunai, "pirmunai.txt", arVM);
 				buffer_rasymas(nuskriaustieji, "nuskriaustieji.txt", arVM);
 				std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
-				cout << "Studentu spausdinimas i du failus uztruko: " << diff.count() << " s" << endl;
+				cout << "Studentu spausdinimas i du failus uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 			}
 			else if (tipas == 1)
 			{
-				list<data> sarasas;
+				list<Studentas> sarasas;
 				buffer_skaitymas(sarasas, failo_pav, arVM);
 
 				skaiciavimas(sarasas, arVM);
-				list<data> pirmunai;
-				list<data> nuskriaustieji;
+				list<Studentas> pirmunai;
+				list<Studentas> nuskriaustieji;
 				if(strategija)
 					studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
 				else
@@ -113,16 +115,16 @@ int main()
 				buffer_rasymas(pirmunai, "pirmunai.txt", arVM);
 				buffer_rasymas(nuskriaustieji, "nuskriaustieji.txt", arVM);
 				std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
-				cout << "Studentu spausdinimas i du failus uztruko: " << diff.count() << " s" << endl;
+				cout << "Studentu spausdinimas i du failus uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 			}
 			else if (tipas == 2)
 			{
-				deque<data> sarasas;
+				deque<Studentas> sarasas;
 				buffer_skaitymas(sarasas, failo_pav);
 
 				skaiciavimas(sarasas, arVM);
-				deque<data> pirmunai;
-				deque<data> nuskriaustieji;
+				deque<Studentas> pirmunai;
+				deque<Studentas> nuskriaustieji;
 				if(strategija)
 					studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
 				else
@@ -143,12 +145,12 @@ int main()
 				buffer_rasymas(pirmunai, "pirmunai.txt", arVM);
 				buffer_rasymas(nuskriaustieji, "nuskriaustieji.txt", arVM);
 				std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
-				cout << "Studentu spausdinimas i du failus uztruko: " << diff.count() << " s" << endl;
+				cout << "Studentu spausdinimas i du failus uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 			}
 		}
 		else
 		{
-			vector<data>sarasas;
+			vector<Studentas>sarasas;
 			while (true)
 			{
 				cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
@@ -157,7 +159,7 @@ int main()
 					break;
 				else
 				{
-					data T;
+					Studentas T;
 					ivestis(T);
 					sarasas.push_back(T);
 				}
@@ -177,7 +179,7 @@ int main()
 		}
 
 		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - Start;
-		cout << "Visos programos veikimo laikas: " << diff.count() << " s" << endl;
+		cout << "Visos programos veikimo laikas: " << std::setprecision(12) << diff.count() << " s" << endl;
 		system("pause");
 	}
 

@@ -30,48 +30,51 @@ double Mediana(vector<int> paz)
 	}
 }
 
-void skaiciavimas(vector<data>& sarasas, int arVM)
+void skaiciavimas(vector<Studentas>& sarasas, int arVM)
 {
 	for (auto& el : sarasas) //is skaidriu
 	{
 		if (arVM == 1)
 		{
-			el.result = Vidurkis(el.paz);
+			el.setResult(Vidurkis(el.getMarks()));
+			el.clearMarks();
 		}
 		else
 		{
-			el.result = Mediana(el.paz);
+			el.setResult(Mediana(el.getMarks()));
+			el.clearMarks();
 		}
 	}
 }
-void skaiciavimas(list<data>& sarasas, int arVM)
+void skaiciavimas(list<Studentas>& sarasas, int arVM)
 {
 	for (auto& el : sarasas) //is skaidriu
 	{
 		if (arVM == 1)
 		{
-			el.result = Vidurkis(el.paz);
-			el.paz.clear();
+			el.setResult(Vidurkis(el.getMarks()));
+			el.clearMarks();
 		}
 		else
 		{
-
-			el.result = Mediana(el.paz);
-			el.paz.clear();
+			el.setResult(Mediana(el.getMarks()));
+			el.clearMarks();
 		}
 	}
 }
-void skaiciavimas(deque<data>& sarasas, int arVM)
+void skaiciavimas(deque<Studentas>& sarasas, int arVM)
 {
 	for (auto& el : sarasas) //is skaidriu
 	{
 		if (arVM == 1)
 		{
-			el.result = Vidurkis(el.paz);
+			el.setResult(Vidurkis(el.getMarks()));
+			el.clearMarks();
 		}
 		else
 		{
-			el.result = Mediana(el.paz);
+			el.setResult(Mediana(el.getMarks()));
+			el.clearMarks();
 		}
 	}
 }

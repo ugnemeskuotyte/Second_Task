@@ -1,9 +1,9 @@
 #pragma once
 
-#include "data.h"
+#include "Studentas.h"
 
 int skaicius(int nuo, int iki);
-void random_paz(int k, data& temp);
+void random_paz(int k, Studentas& temp);
 void naujas_failas(string failo_pav, int studSk, int ndSk);
 string naujo_failo_antraste(int ndSk);
 string studentas(int ndSk);

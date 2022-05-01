@@ -9,15 +9,16 @@ int skaicius(int nuo, int iki)
 	return x;
 }
 
-void random_paz(int k, data& temp)
+void random_paz(int k, Studentas& temp)
 {
 	int x;
 	for (int i = 0; i < k; i++)
 	{
 		x = skaicius(1, 10);
-		temp.paz.push_back(x);
+		temp.setMark(x);
 	}
 }
+
 void naujas_failas(string failo_pav, int studSk, int ndSk)
 {
 	auto S = std::chrono::high_resolution_clock::now();
@@ -31,7 +32,7 @@ void naujas_failas(string failo_pav, int studSk, int ndSk)
 	out << rezultatas.rdbuf();
 	out.close();
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - S;
-	cout << "Naujo failo generavimas uztruko: " << diff.count() << " s" << endl;
+	cout << "Naujo failo generavimas uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 }
 string naujo_failo_antraste(int ndSk)
 {

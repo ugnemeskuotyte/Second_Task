@@ -1,15 +1,14 @@
 #pragma once
 
-#include "data.h"
+#include "Studentas.h"
 
-bool pagal_varda(data a, data b);
-bool pagal_pavarde(data a, data b);
-bool pagal_pazymi(data a, data b);
-void studentu_skirtymas(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji);
 
-void studentu_skirtymas(list<data>& sarasas, list<data>& pirmunai, list<data>& nuskriaustieji);
-void studentu_skirtymas(deque<data>& sarasas, deque<data>& pirmunai, deque<data>& nuskriaustieji);
 
-void studentu_skirtymas_1(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji);
-void studentu_skirtymas_1(list<data>& sarasas, list<data>& pirmunai, list<data>& nuskriaustieji);
-void studentu_skirtymas_1(deque<data>& sarasas, deque<data>& pirmunai, deque<data>& nuskriaustieji);
+void studentu_skirtymas(vector<Studentas>& sarasas, vector<Studentas>& pirmunai, vector<Studentas>& nuskriaustieji);
+
+void studentu_skirtymas(list<Studentas>& sarasas, list<Studentas>& pirmunai, list<Studentas>& nuskriaustieji);
+void studentu_skirtymas(deque<Studentas>& sarasas, deque<Studentas>& pirmunai, deque<Studentas>& nuskriaustieji);
+
+void studentu_skirtymas_1(vector<Studentas>& sarasas, vector<Studentas>& pirmunai, vector<Studentas>& nuskriaustieji);
+void studentu_skirtymas_1(list<Studentas>& sarasas, list<Studentas>& pirmunai, list<Studentas>& nuskriaustieji);
+void studentu_skirtymas_1(deque<Studentas>& sarasas, deque<Studentas>& pirmunai, deque<Studentas>& nuskriaustieji);

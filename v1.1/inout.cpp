@@ -1,13 +1,13 @@
 #include "inout.h"
 
-void ivestis(data& temp)
+void ivestis(Studentas& temp)
 {
 	bool pasirinkimas;
 	int p;
 	cout << "Iveskite studento varda: ";
-	cin >> temp.vardas;
+	temp.setName(cin);
 	cout << "Iveskite studento pavarde: ";
-	cin >> temp.pavarde;
+	temp.setSurname(cin);
 
 	cout << "Jei norite namu darbu ivertinimus generuoti automatiskai spauskite 1, jei pazymius vesite ranka spauskite 0: " << endl;
 	pasirinkimas = vienas_nulis();
@@ -28,7 +28,7 @@ void ivestis(data& temp)
 				break;
 			else if (desimtbale(p))
 			{
-				temp.paz.push_back(p);
+				temp.setMark(p);
 			}
 		}
 	}
@@ -37,7 +37,7 @@ void ivestis(data& temp)
 	pasirinkimas = vienas_nulis();
 	if (pasirinkimas)
 	{
-		temp.egz = skaicius(1, 10);
+		temp.setEgz(skaicius(1, 10));
 	}
 	else
 	{
@@ -47,19 +47,19 @@ void ivestis(data& temp)
 			p = kintamojo_tipas();
 			if (desimtbale(p))
 			{
-				temp.egz = p;
+				temp.setEgz(p);
 				break;
 			}
 		}
 	}
 
 }
-string isvestis(data& temp)
+string isvestis(Studentas& temp)
 {
 	std::stringstream x;
-	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.vardas <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.pavarde <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.result << endl;
+	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getName() <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getSurname() <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult() << endl;
 	return x.str();
 }
 string antrasteVidurkis()
@@ -80,7 +80,7 @@ string antrasteMediana()
 		std::endl << "----------------------------------------------------------" << endl;
 	return temp.str();
 }
-void i_ekrana(vector<data> sarasas, int arVM)
+void i_ekrana(vector<Studentas> sarasas, int arVM)
 {
 	if (arVM == 1)
 		cout << antrasteVidurkis();
@@ -91,7 +91,7 @@ void i_ekrana(vector<data> sarasas, int arVM)
 		cout << isvestis(sarasas[i]);
 	}
 }
-void buffer_skaitymas(vector<data>& sarasas, string failas)
+void buffer_skaitymas(vector<Studentas>& sarasas, string failas)
 {
 	try {
 		std::stringstream buffer;
@@ -110,29 +110,30 @@ void buffer_skaitymas(vector<data>& sarasas, string failas)
 		std::getline(buffer, line);
 		while (buffer)
 		{
-			data temp;
+			Studentas temp;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			eil >> temp.vardas >> temp.pavarde;
+			//eil >> temp.getName() >> temp.getSurname();
+			temp.setName(eil);
+			temp.setSurname(eil);
 			while (eil >> p)
 			{
-				temp.paz.push_back(p);
+				temp.setMark(p);
 			}
-			temp.egz = temp.paz.back();
-			temp.paz.pop_back();
+			temp.setEgz(temp.getMark());
 			sarasas.push_back(temp);
 		}
 		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-		cout << "Skaitymas is failo uztruko: " << diff.count() << " s" << endl;
+		cout << "Skaitymas is failo uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 	}
 	catch (std::exception const& e) {
 		cout << "Atidaryti failo nepavyko.\n";
 	}
 
 }
-void buffer_rasymas(vector<data>& sarasas, string failas, int arVM)
+void buffer_rasymas(vector<Studentas>& sarasas, string failas, int arVM)
 {
 	std::stringstream rezultatas;
 	if (arVM == 1)
@@ -148,7 +149,7 @@ void buffer_rasymas(vector<data>& sarasas, string failas, int arVM)
 	out << rezultatas.rdbuf();
 	out.close();
 }
-void i_ekrana(list<data> sarasas, int arVM)
+void i_ekrana(list<Studentas> sarasas, int arVM)
 {
 	if (arVM == 1)
 		cout << antrasteVidurkis();
@@ -158,7 +159,7 @@ void i_ekrana(list<data> sarasas, int arVM)
 	for (auto& a : sarasas)
 		cout << isvestis(a);
 }
-void buffer_skaitymas(list<data>& sarasas, string failas, bool arVM)
+void buffer_skaitymas(list<Studentas>& sarasas, string failas, bool arVM)
 {
 	try {
 		std::stringstream buffer;
@@ -178,33 +179,29 @@ void buffer_skaitymas(list<data>& sarasas, string failas, bool arVM)
 		//vector<int> paz;
 		while (buffer)
 		{
-			data temp;
+			Studentas temp;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			eil >> temp.vardas >> temp.pavarde;
+			temp.setName(eil);
+			temp.setSurname(eil);
 			while (eil >> p)
 			{
-				temp.paz.push_back(p);
+				temp.setMark(p);
 			}
-			temp.egz = temp.paz.back();
-			temp.paz.pop_back();
-			/*if (arVM)
-				temp.result = Vidurkis(paz);
-			else temp.result = Mediana(paz);*/
+			temp.setEgz(temp.getMark());
 			sarasas.push_back(temp);
-			//paz.clear();
 		}
 		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-		cout << "Skaitymas is failo uztruko: " << diff.count() << " s" << endl;
+		cout << "Skaitymas is failo uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 	}
 	catch (std::exception const& e) {
 		cout << "Atidaryti failo nepavyko.\n";
 	}
 
 }
-void buffer_rasymas(list<data>& sarasas, string failas, int arVM)
+void buffer_rasymas(list<Studentas>& sarasas, string failas, int arVM)
 {
 	std::stringstream rezultatas;
 	if (arVM == 1)
@@ -219,7 +216,7 @@ void buffer_rasymas(list<data>& sarasas, string failas, int arVM)
 	out << rezultatas.rdbuf();
 	out.close();
 }
-void i_ekrana(deque<data> sarasas, int arVM)
+void i_ekrana(deque<Studentas> sarasas, int arVM)
 {
 	if (arVM == 1)
 		cout << antrasteVidurkis();
@@ -230,7 +227,7 @@ void i_ekrana(deque<data> sarasas, int arVM)
 		cout << isvestis(sarasas[i]);
 	}
 }
-void buffer_skaitymas(deque<data>& sarasas, string failas)
+void buffer_skaitymas(deque<Studentas>& sarasas, string failas)
 {
 	try {
 		std::stringstream buffer;
@@ -249,29 +246,29 @@ void buffer_skaitymas(deque<data>& sarasas, string failas)
 		std::getline(buffer, line);
 		while (buffer)
 		{
-			data temp;
+			Studentas temp;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			eil >> temp.vardas >> temp.pavarde;
+			temp.setName(eil);
+			temp.setSurname(eil);
 			while (eil >> p)
 			{
-				temp.paz.push_back(p);
+				temp.setMark(p);
 			}
-			temp.egz = temp.paz.back();
-			temp.paz.pop_back();
+			temp.setEgz(temp.getMark());
 			sarasas.push_back(temp);
 		}
 		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-		cout << "Skaitymas is failo uztruko: " << diff.count() << " s" << endl;
+		cout << "Skaitymas is failo uztruko: " << std::setprecision(12) << diff.count() << " s" << endl;
 	}
 	catch (std::exception const& e) {
 		cout << "Atidaryti failo nepavyko.\n";
 	}
 
 }
-void buffer_rasymas(deque<data>& sarasas, string failas, int arVM)
+void buffer_rasymas(deque<Studentas>& sarasas, string failas, int arVM)
 {
 	std::stringstream rezultatas;
 	if (arVM == 1)
