@@ -1,22 +1,26 @@
-run: main.o generavimas.o inout.o rusiavimas.o skaici.o validacija.o
-	g++ main.cpp generavimas.cpp inout.cpp rusiavimas.cpp skaic.cpp validacija.cpp -o run
+run: main.o generavimas.o inout.o rusiavimas.o skaic.o validacija.o studentas.o
+	g++ main.cpp generavimas.cpp inout.cpp rusiavimas.cpp skaic.cpp validacija.cpp studentas.cpp -o run
 
-Generavimas.o: generavimas.cpp
+generavimas.o: generavimas.cpp
 	g++ -c generavimas.cpp
 
-Input_Output.o: inout.cpp
+inout.o: inout.cpp
 	g++ -c inout.cpp
 
-Rusiavimas.o: rusiavimas.cpp
+rusiavimas.o: rusiavimas.cpp
 	g++ -c rusiavimas.cpp
 
-Skaiciavimas.o: skaic.cpp
+skaic.o: skaic.cpp
 	g++ -c skaic.cpp
 
-Validacija.o: validacija.cpp
+validacija.o: validacija.cpp
 	g++ -c validacija.cpp
+
+studentas.o: studentas.cpp
+	g++ -c studentas.cpp
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-clean: rm *.o run
+clean: 
+	del *.o *.exe
