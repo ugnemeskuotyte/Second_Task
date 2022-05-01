@@ -29,8 +29,8 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 ### Programos testavimas 1 Strategija
 |                     |     100000    |   1000000   |
 | ------------------- | ------------- | ----------- |
-|   |     s  |     s  |
-|    |     s  |   s  |
+|  STRUCT |   1.4179352  s  |  14.29873   s  |
+| CLASS   |   1.8216217  s  |  15.4101992 s  |
 
 
 ### Programos testavimas visos programos veikimo laikas naudojant vektorius
@@ -40,10 +40,6 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 | O2  |  0.017014  s   |   0.083013 s  | 1.305035  s  | 13.301999 s  |
 |  O3 |  0.016047  s   |   0.128994  s  |  1.176997  s  |  14.405094 s  | 
 
-
-Testavimo išvados:
-1. Nors 1 testavimo strategija (nauji sąrašai užpildomi ir originalus ištrinamas tik darbui baigus) dirba greičiau, šis būdas "valgo" labai daug atminties, todėl ant mažai RAM turinčių kompiuterių programa gali neveikti.
-2. Iš visų trijų testuotų sąrašų tipų List buvo greičiausias.
 
 Programos naudojimo instrukcijos:
 1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
