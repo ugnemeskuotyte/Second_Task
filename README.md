@@ -1,19 +1,21 @@
 # Second-task
 
-### v1.0
+### v1.1
 ### Programos veikimas
-Visa programa padalinta į 6 skirtingus projektus, kuriuose skiriasi naudojamų sąrašų tipai (vector/deque/list), bei naudojamos studentų dalinimo strategijos. <br>
+
 1. Programos pradžioje vartotojas gali pasirinkti, ar nori vykdyti programą, ar baigti darbą. <br>
    * Jeigu vartotojas pasirenka programos darbą baigti, programa išsijungia.
    * Jeigu vartotojas pasirenka programą vykdyti, programa tęsiasi
-2. Jeigu vartotojas nori generuoti failą, jis turi spausti "1", jeigu ne -"0" <br>
+2. Vartotojas pasirenka kokio tipo sąrašą naudoti: vector/list/deque
+3. Vartotojas pasirenka, kurią strategiją naudoti: pirmoji-greitesnė, antroji-užima mažiau vietos
+4. Jeigu vartotojas nori generuoti failą, jis turi spausti "1", jeigu ne -"0" <br>
    * Pasirinkęs failą generuoti, vartotojas turės įvesti failo pavadinimą (be .txt pabaigos), kiek studentų ir kiek pažymių nori sugeneruoti. Vartotojas turės galimybę pasirinkti pagal ką rūšiuoti rezultatus (pagal vardą arba pagal pavardę) bei pagal ką skaičiuoti galutinius rezultatus (pagal vidurkį arba medianą). Vartotojui daugiau nieko daryti nebereikės. Po programos pauzės vartotojas bus grąžintas į žingsnį 1.<br>
    * Jeigu vartotojas pasirenka naujo failo negeneruoti, programos veikimą žiūrėti 3-6 žingsniuose <br>
-3. Jeigu vartotojas nori duomenis rašyti ranka, jam reikia spausti "1", jeigu skaityti iš failo - "0". <br>
+5. Jeigu vartotojas nori duomenis rašyti ranka, jam reikia spausti "1", jeigu skaityti iš failo - "0". <br>
    * Pasirinkus skaityti iš failo, vartotojas turės įrašyti failo pavadinimą (be ".txt" pabaigos). <br>
-4. Vartotojui bus duotas pasirinkimas ar galutinį studentį sąrašą rūšiuos pagal vardą (paspaudus "1"), ar pavardę (paspaudus "0"). <br>
-5. Tuomet vartotojas turės pasirinkti ar galutinį rezultatą programa turi skaičiuoti pagal vidurkį (paspaudus "1"), ar medianą (paspaudus "0"). <br>
-6. Jeigu vartotojas žingsnyje 1 pasirinko duomenis įvesti pats:
+6. Vartotojui bus duotas pasirinkimas ar galutinį studentį sąrašą rūšiuos pagal vardą (paspaudus "1"), ar pavardę (paspaudus "0"). <br>
+7. Tuomet vartotojas turės pasirinkti ar galutinį rezultatą programa turi skaičiuoti pagal vidurkį (paspaudus "1"), ar medianą (paspaudus "0"). <br>
+8. Jeigu vartotojas žingsnyje 1 pasirinko duomenis įvesti pats:
   * Studentų kiekis nėra fiksuotas, todėl, jeigu vartotojas nori pridėti naują studentą, jam reikia paspausti "1", jeigu pildyti baigė - "0". <br>
   * Pasirinkus "1" reikės įvesti naujo studento vardą ir pavardę. <br>
   * Vartotojas gali pasirinkti ar namų darbų pažymius įves pats (paspaudus "0"), ar programa turi generuoti automatiškai (paspaudus "1"). <br>
