@@ -42,10 +42,17 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 | O2  |  0.017014  s   |   0.083013 s  | 1.305035  s  | 13.301999 s  |
 |  O3 |  0.016047  s   |   0.128994  s  |  1.176997  s  |  14.405094 s  | 
 
+###v1.2
+Pridėta:
+1. Konstruktorius
+2. Copy konstruktorius
+3. Destruktorius
+4. Copy assignement operatorius
 
 Programos naudojimo instrukcijos:
 1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
 2. Parsisiųskite failus iš v1.0 git repozitorijos.
 3. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
-4. Parašykite komandą - make
-5. Programą paleiskite įvedę komandą - ./run
+4. Parašykite komandą - mingw32-make
+5. Programą paleiskite įvedę komandą - run
+6. Jeigu norite "išvalyti" programą, parašykite komandą - mingw32-make clean
