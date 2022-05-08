@@ -51,7 +51,7 @@ Pridėta:
 
 Programos naudojimo instrukcijos:
 1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
-2. Parsisiųskite failus iš v1.0 git repozitorijos.
+2. Parsisiųskite failus iš v1.2 git repozitorijos.
 3. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
 4. Parašykite komandą - mingw32-make
 5. Programą paleiskite įvedę komandą - run
