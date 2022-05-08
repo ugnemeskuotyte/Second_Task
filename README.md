@@ -42,7 +42,7 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 | O2  |  0.017014  s   |   0.083013 s  | 1.305035  s  | 13.301999 s  |
 |  O3 |  0.016047  s   |   0.128994  s  |  1.176997  s  |  14.405094 s  | 
 
-###v1.2
+### v1.2
 Pridėta:
 1. Konstruktorius
 2. Copy konstruktorius
