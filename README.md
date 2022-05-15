@@ -42,6 +42,10 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 | O2  |  0.017014  s   |   0.083013 s  | 1.305035  s  | 13.301999 s  |
 |  O3 |  0.016047  s   |   0.128994  s  |  1.176997  s  |  14.405094 s  | 
 
+Rezultatai:
+1. Programa veikia greičiau naudojant struktūras
+2. Greičiausias kompiliavimo tag'as - O2
+
 ### v1.2
 Pridėta:
 1. Konstruktorius
@@ -54,10 +58,21 @@ Pridėta:
 1. Studentas klasei pridėtas išvesties operatorius
 2. Sukurta abstrakti klasė Zmogus (ją paveldi Studentas klasė).
 
-## Programos naudojimo instrukcijos:
+### v2.0
+Pridėta:
+1. Pridėta Doxygen dokumentacija
+2. Įvykdytas GoogleTest testavimas
+3. Sukurtas setup.exe failas
+
+## Programos naudojimo instrukcijos 1 būdas:
 1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
-2. Parsisiųskite failus iš v1.5 git repozitorijos.
-3. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
-4. Parašykite komandą - mingw32-make
-5. Programą paleiskite įvedę komandą - run
-6. Jeigu norite "išvalyti" programą, parašykite komandą - mingw32-make clean
+2. Parsisiųskite failus iš v2.0 git repozitorijos.
+3. Paleiskite setup.exe failą
+4. Renginyje turi atsirasti aplikacija "My console app". Ją paleidus, programa įsijungs
+
+## Programos naudojimo instrukcija 2 būdas:
+1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
+2. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
+3. Parašykite komandą - mingw32-make
+4. Programą paleiskite įvedę komandą - run
+5. Jeigu norite "išvalyti" programą, parašykite komandą - mingw32-make clean
