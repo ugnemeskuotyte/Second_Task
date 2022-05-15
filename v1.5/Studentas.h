@@ -36,7 +36,7 @@ public:
 	{
 		output<< std::setiosflags(std::ios_base::left) << std::setw(20) << s.vardas <<
 		std::setiosflags(std::ios_base::left) << std::setw(20) << s.pavarde <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << s.result << endl;
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << s.result*0.4+0.6*s.egz << endl;
 		return output;
 	};
 	
