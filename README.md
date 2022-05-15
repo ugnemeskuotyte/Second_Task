@@ -28,14 +28,14 @@
   * Rezultatai atspausdinami konsolėje lentelės pavidalu. <br>
 
 Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
-### Programos testavimas 1 Strategija
+### Programos testavimas. Visos programos veikimo laikas naudojant vektorius, 1 Strategija
 |                     |     100000    |   1000000   |
 | ------------------- | ------------- | ----------- |
 |  STRUCT |   1.4179352  s  |  14.29873   s  |
 | CLASS   |   1.8216217  s  |  15.4101992 s  |
 
 
-### Programos testavimas visos programos veikimo laikas naudojant vektorius
+### Programos testavimas. Visos programos veikimo laikas naudojant vektorius
 |                     |       1000      |      10000     |     100000    |   1000000   |
 | ------------------- | --------------- | -------------- | ------------- | ----------- |
 |  O1 |    0.015031 s   |   0.135996 s  |   1.341997 s  |  13.696159 s  |
@@ -49,9 +49,14 @@ Pridėta:
 3. Destruktorius
 4. Copy assignement operatorius
 
-Programos naudojimo instrukcijos:
+### v1.5
+Pridėta:
+1. Studentas klasei pridėtas išvesties operatorius
+2. Sukurta abstrakti klasė Zmogus (ją paveldi Studentas klasė).
+
+## Programos naudojimo instrukcijos:
 1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
-2. Parsisiųskite failus iš v1.2 git repozitorijos.
+2. Parsisiųskite failus iš v1.5 git repozitorijos.
 3. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
 4. Parašykite komandą - mingw32-make
 5. Programą paleiskite įvedę komandą - run
