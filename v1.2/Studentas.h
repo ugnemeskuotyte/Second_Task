@@ -54,6 +54,14 @@ public:
 	int getMark();
 	vector<int> getMarks();
 	void clearMarks();
+
+		friend std::ostream &operator<<(std::ostream & output, const Studentas &s)
+	{
+		output<< std::setiosflags(std::ios_base::left) << std::setw(20) << s.vardas <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << s.pavarde <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << s.result*0.4+0.6*s.egz << endl;
+		return output;
+	};
 };
 bool pagal_varda(Studentas& a, Studentas& b);
 bool pagal_pavarde(Studentas& a, Studentas& b);

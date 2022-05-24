@@ -59,7 +59,7 @@ string isvestis(Studentas& temp)
 	std::stringstream x;
 	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getName() <<
 		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getSurname() <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult() << endl;
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult()*0.4+0.6*temp.getEgz() << endl;
 	return x.str();
 }
 string antrasteVidurkis()
@@ -141,7 +141,7 @@ void buffer_rasymas(vector<Studentas>& sarasas, string failas, int arVM)
 	else
 		rezultatas << antrasteMediana();
 	for (auto& a : sarasas)
-		rezultatas << isvestis(a);
+		rezultatas << a;
 	sarasas.clear();
 	sarasas.shrink_to_fit();
 
@@ -180,12 +180,14 @@ void buffer_skaitymas(list<Studentas>& sarasas, string failas, bool arVM)
 		while (buffer)
 		{
 			Studentas temp;
+			string name, last;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			temp.setName(eil);
-			temp.setSurname(eil);
+			eil >> name >> last;
+			temp.setName(name);
+			temp.setSurname(last);
 			while (eil >> p)
 			{
 				temp.setMark(p);
@@ -209,7 +211,7 @@ void buffer_rasymas(list<Studentas>& sarasas, string failas, int arVM)
 	else
 		rezultatas << antrasteMediana();
 	for (auto& a : sarasas)
-		rezultatas << isvestis(a);
+		rezultatas << a;
 	sarasas.clear();
 
 	std::ofstream out(failas);
@@ -276,7 +278,7 @@ void buffer_rasymas(deque<Studentas>& sarasas, string failas, int arVM)
 	else
 		rezultatas << antrasteMediana();
 	for (auto& a : sarasas)
-		rezultatas << isvestis(a);
+		rezultatas << a;
 	sarasas.clear();
 	sarasas.shrink_to_fit();
 

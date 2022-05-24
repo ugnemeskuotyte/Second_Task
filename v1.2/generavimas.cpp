@@ -2,7 +2,7 @@
 
 int skaicius(int nuo, int iki)
 {
-	unsigned seed1 = std::chrono::system_clock::now().time_since_epoch().count();
+	unsigned seed1 = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 	std::mt19937 generator(seed1);
 	std::uniform_int_distribution<int> dist(nuo, iki);
 	int x = dist(generator);
