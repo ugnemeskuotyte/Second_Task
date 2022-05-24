@@ -58,3 +58,41 @@ bool pagal_pazymi_2(Studentas& a, Studentas& b)
 {
 	return a.getResult() < b.getResult();
 }
+Studentas::Studentas() { 
+	egz = 0; 
+	vardas = "";
+	pavarde = "";
+}
+Studentas::Studentas(const Studentas& x)
+{
+	this->vardas = x.vardas;
+	this->pavarde = x.pavarde;
+	this->paz.reserve(x.paz.size());
+	this->paz.resize(x.paz.size());
+	for (int i = 0; i < x.paz.size(); i++)
+	{
+		paz[i] = x.paz[i];
+	}
+	this->egz = x.egz;
+	this->result = x.result;
+}
+Studentas& Studentas::operator=(const Studentas& x)
+{
+	if (&x == this)
+		return *this;
+	vardas = x.vardas;
+	pavarde = x.pavarde;
+	this->paz.reserve(x.paz.size());
+	this->paz.resize(x.paz.size());
+	for (int i = 0; i < x.paz.size(); i++)
+	{
+		paz[i] = x.paz[i];
+	}
+	egz = x.egz;
+	result = x.result;
+	return *this;
+}
+Studentas::~Studentas()
+{
+	paz.clear();
+}

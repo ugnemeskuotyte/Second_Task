@@ -33,6 +33,11 @@ private:
 	double result = 0.0;
 
 public:
+	Studentas(); //konstruktorius
+	Studentas(const Studentas& x); //copy constructor
+	Studentas& operator = (const Studentas& x); //copy assignement operator
+	~Studentas(); //destruktorius
+	
 	void setName(string x);
 	void setName(std::istream& name);
 	void setSurname(string x);
