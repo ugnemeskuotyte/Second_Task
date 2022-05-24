@@ -59,7 +59,7 @@ string isvestis(Studentas& temp)
 	std::stringstream x;
 	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getName() <<
 		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getSurname() <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult() << endl;
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult()*0.4+0.6*temp.getEgz() << endl;
 	return x.str();
 }
 string antrasteVidurkis()
@@ -111,13 +111,15 @@ void buffer_skaitymas(vector<Studentas>& sarasas, string failas)
 		while (buffer)
 		{
 			Studentas temp;
+			string name, last;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			//eil >> temp.getName() >> temp.getSurname();
-			temp.setName(eil);
-			temp.setSurname(eil);
+
+			eil >> name >> last;
+			temp.setName(name);
+			temp.setSurname(last);
 			while (eil >> p)
 			{
 				temp.setMark(p);
