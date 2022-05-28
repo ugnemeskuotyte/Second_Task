@@ -36,12 +36,12 @@ void skaiciavimas(vector<Studentas>& sarasas, int arVM)
 	{
 		if (arVM == 1)
 		{
-			el.setResult(Vidurkis(el.getMarks()));
+			el.setResult(Vidurkis(el.getMarks())*0.4+0.6*el.getEgz());
 			el.clearMarks();
 		}
 		else
 		{
-			el.setResult(Mediana(el.getMarks()));
+			el.setResult(Mediana(el.getMarks())*0.4+0.6*el.getEgz());
 			el.clearMarks();
 		}
 	}
@@ -52,12 +52,12 @@ void skaiciavimas(list<Studentas>& sarasas, int arVM)
 	{
 		if (arVM == 1)
 		{
-			el.setResult(Vidurkis(el.getMarks()));
+			el.setResult(Vidurkis(el.getMarks()) * 0.4 + 0.6 * el.getEgz());
 			el.clearMarks();
 		}
 		else
 		{
-			el.setResult(Mediana(el.getMarks()));
+			el.setResult(Mediana(el.getMarks()) * 0.4 + 0.6 * el.getEgz());
 			el.clearMarks();
 		}
 	}
@@ -68,12 +68,12 @@ void skaiciavimas(deque<Studentas>& sarasas, int arVM)
 	{
 		if (arVM == 1)
 		{
-			el.setResult(Vidurkis(el.getMarks()));
+			el.setResult(Vidurkis(el.getMarks()) * 0.4 + 0.6 * el.getEgz());
 			el.clearMarks();
 		}
 		else
 		{
-			el.setResult(Mediana(el.getMarks()));
+			el.setResult(Mediana(el.getMarks()) * 0.4 + 0.6 * el.getEgz());
 			el.clearMarks();
 		}
 	}

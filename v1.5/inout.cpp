@@ -4,10 +4,12 @@ void ivestis(Studentas& temp)
 {
 	bool pasirinkimas;
 	int p;
+	string vardas, pavarde;
 	cout << "Iveskite studento varda: ";
-	temp.setName(cin);
+	cin >> vardas;
 	cout << "Iveskite studento pavarde: ";
-	temp.setSurname(cin);
+	cin >> pavarde;
+	Studentas t(vardas, pavarde);
 
 	cout << "Jei norite namu darbu ivertinimus generuoti automatiskai spauskite 1, jei pazymius vesite ranka spauskite 0: " << endl;
 	pasirinkimas = vienas_nulis();
@@ -15,7 +17,7 @@ void ivestis(Studentas& temp)
 	{
 		cout << "Kiek ivertinimu norite sugeneruoti? " << endl;
 		p = kintamojo_tipas();
-		random_paz(p, temp);
+		random_paz(p, t);
 	}
 	else
 	{
@@ -28,7 +30,7 @@ void ivestis(Studentas& temp)
 				break;
 			else if (desimtbale(p))
 			{
-				temp.setMark(p);
+				t.setMark(p);
 			}
 		}
 	}
@@ -37,7 +39,7 @@ void ivestis(Studentas& temp)
 	pasirinkimas = vienas_nulis();
 	if (pasirinkimas)
 	{
-		temp.setEgz(skaicius(1, 10));
+		t.setEgz(skaicius(1, 10));
 	}
 	else
 	{
@@ -52,13 +54,13 @@ void ivestis(Studentas& temp)
 			}
 		}
 	}
-
+	temp = t;
 }
 string isvestis(Studentas& temp)
 {
 	std::stringstream x;
-	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getName() <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getSurname() <<
+	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getVardas() <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.getPavarde() <<
 		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << temp.getResult() << endl;
 	return x.str();
 }
@@ -110,16 +112,13 @@ void buffer_skaitymas(vector<Studentas>& sarasas, string failas)
 		std::getline(buffer, line);
 		while (buffer)
 		{
-			Studentas temp;
 			string name, last;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
-			//eil >> temp.getName() >> temp.getSurname();
 			eil >> name >> last;
-			temp.setName(name);
-			temp.setSurname(last);
+			Studentas temp(name, last);
 			while (eil >> p)
 			{
 				temp.setMark(p);
@@ -181,15 +180,13 @@ void buffer_skaitymas(list<Studentas>& sarasas, string failas, bool arVM)
 		//vector<int> paz;
 		while (buffer)
 		{
-			Studentas temp;
 			string name, last;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
 			eil >> name >> last;
-			temp.setName(name);
-			temp.setSurname(last);
+			Studentas temp(name, last);
 			while (eil >> p)
 			{
 				temp.setMark(p);
@@ -250,15 +247,13 @@ void buffer_skaitymas(deque<Studentas>& sarasas, string failas)
 		std::getline(buffer, line);
 		while (buffer)
 		{
-			Studentas temp;
 			string name, last;
 			std::getline(buffer, line);
 			if (line.length() == 0)
 				break;
 			std::istringstream eil(line);
 			eil >> name >> last;
-			temp.setName(name);
-			temp.setSurname(last);
+			Studentas temp(name, last);
 			while (eil >> p)
 			{
 				temp.setMark(p);

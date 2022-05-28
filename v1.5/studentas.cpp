@@ -1,32 +1,13 @@
 #include "Studentas.h"
 
-void Studentas::setName(string& x)
-{
-	vardas = x;
-}
-void Studentas::setName(std::istream& name)
-{
-	name >> vardas;
-}
-void Studentas::setSurname(string& x)
-{
-	pavarde = x;
-}
-void Studentas::setSurname(std::istream& name)
-{
-	name >> pavarde;
-}
+double Studentas::getResult() { return result; }
+double Studentas::getEgz() { return egz; }
+vector<int> Studentas::getMarks() { return paz; }
+void Studentas::clearMarks() { paz.clear(); }
 void Studentas::setEgz(int x)
 {
 	egz = x;
 }
-
-double Studentas::getResult() { return result; }
-double Studentas::getEgz() { return egz; }
-string Studentas::getName() { return vardas; }
-string Studentas::getSurname() { return pavarde; }
-vector<int> Studentas::getMarks() { return paz; }
-void Studentas::clearMarks() { paz.clear(); }
 void Studentas::setResult(double x)
 {
 	result = x;
@@ -44,11 +25,11 @@ int Studentas::getMark()
 }
 bool pagal_varda(Studentas& a, Studentas& b)
 {
-	return a.getName() < b.getName();
+	return a.getVardas() < b.getVardas();
 }
 bool pagal_pavarde(Studentas& a, Studentas& b)
 {
-	return a.getSurname() < b.getSurname();
+	return a.getPavarde() < b.getPavarde();
 }
 bool pagal_pazymi(Studentas& a, Studentas& b)
 {
@@ -95,4 +76,12 @@ Studentas& Studentas::operator=(const Studentas& x)
 Studentas::~Studentas()
 {
 	paz.clear();
+}
+const string& Studentas::getVardas() const { return vardas; }
+const string& Studentas::getPavarde() const { return pavarde; }
+bool isVargsas(Studentas& a)
+{
+	if (a.getResult() < 5)
+		return true;
+	return false;
 }

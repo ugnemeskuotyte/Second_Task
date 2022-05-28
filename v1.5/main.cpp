@@ -9,7 +9,6 @@ int main()
 {
 	string failo_pav = "";
 	bool testi = true;
-
 	while (testi)
 	{	
 		auto Start = std::chrono::high_resolution_clock::now();		
