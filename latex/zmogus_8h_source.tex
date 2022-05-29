@@ -1,0 +1,48 @@
+\doxysection{zmogus.\+h}
+\label{zmogus_8h_source}\index{C:/Users/ugnem/Desktop/v1.5/zmogus.h@{C:/Users/ugnem/Desktop/v1.5/zmogus.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{using }std::cin;}
+\DoxyCodeLine{19 \textcolor{keyword}{using }std::cout;}
+\DoxyCodeLine{20 \textcolor{keyword}{using }std::endl;}
+\DoxyCodeLine{21 \textcolor{keyword}{using }std::vector;}
+\DoxyCodeLine{22 \textcolor{keyword}{using }std::string;}
+\DoxyCodeLine{23 \textcolor{keyword}{using }std::list;}
+\DoxyCodeLine{24 \textcolor{keyword}{using }std::deque;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }Zmogus}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29         \textcolor{keywordtype}{string} vardas;}
+\DoxyCodeLine{30         \textcolor{keywordtype}{string} pavarde;}
+\DoxyCodeLine{31     \textcolor{keyword}{public}:}
+\DoxyCodeLine{32         \textcolor{keyword}{explicit} Zmogus() \{}
+\DoxyCodeLine{33             vardas = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{34             pavarde = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36         \textcolor{keyword}{explicit} Zmogus(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& v, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& p) \{}
+\DoxyCodeLine{37             vardas = v;}
+\DoxyCodeLine{38             pavarde = p;}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& getVardas() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{41         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& getPavarde() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{42 \};}
+
+\end{DoxyCode}
