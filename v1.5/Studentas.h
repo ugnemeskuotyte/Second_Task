@@ -14,18 +14,15 @@ public:
 	Studentas(const Studentas& x); //copy constructor
 	Studentas& operator = (const Studentas& x); //copy assignement operator
 	~Studentas(); //destruktorius
+	explicit Studentas(const string& vardas, const string& pavarde) :Zmogus(vardas, pavarde) {};
 
-	void setName(string& x);
-	void setName(std::istream& name);
-	void setSurname(string& x);
-	void setSurname(std::istream& name);
 	void setEgz(int x);
 	void setResult(double x);
 	
+	const string& getVardas() const override;
+	const string& getPavarde() const override;
 	double getResult();
 	double getEgz();
-	string getName();
-	string getSurname();
 
 	void setMark(int x);
 	int getMark();
@@ -36,7 +33,7 @@ public:
 	{
 		output<< std::setiosflags(std::ios_base::left) << std::setw(20) << s.vardas <<
 		std::setiosflags(std::ios_base::left) << std::setw(20) << s.pavarde <<
-		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << s.result*0.4+0.6*s.egz << endl;
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << s.result << endl;
 		return output;
 	};
 	
@@ -45,3 +42,4 @@ bool pagal_varda(Studentas& a, Studentas& b);
 bool pagal_pavarde(Studentas& a, Studentas& b);
 bool pagal_pazymi(Studentas& a, Studentas& b);
 bool pagal_pazymi_2(Studentas& a, Studentas& b);
+bool isVargsas(Studentas& a);

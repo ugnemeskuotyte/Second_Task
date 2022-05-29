@@ -29,16 +29,14 @@ class Zmogus
         string vardas;
         string pavarde;
     public:
-        explicit Zmogus();
-        ~Zmogus();
-        explicit Zmogus(const Zmogus &x);
-        void setName(string &x);
-        void setName(std::istream& name);
-        void setSurname(string &x);
-	    void setSurname(std::istream& name);
-        void setEgz(int x);
-        void setResult(double x);
-
-        string getVardas() const;
-        string getPavarde() const;
+        explicit Zmogus() {
+            vardas = "";
+            pavarde = "";
+        }
+        explicit Zmogus(const string& v, const string& p) {
+            vardas = v;
+            pavarde = p;
+        }
+        virtual const string& getVardas() const = 0;
+        virtual const string& getPavarde() const = 0;
 };
