@@ -6,7 +6,6 @@
 #include "..//v1.5/skaic.cpp"
 #include "..//v1.5/generavimas.cpp"
 #include "..//v1.5/zmogus.h"
-#include "..//v1.5/zmogus.cpp"
 
 TEST(TestCaseName, TestName) {
   EXPECT_EQ(1, 1);
@@ -14,18 +13,19 @@ TEST(TestCaseName, TestName) {
 }
 TEST(studentasTest, VardasTest)
 {
-	Studentas studentas;
+	//Studentas studentas;
 	string vardas = "Vardenis";
-	studentas.setName(vardas);
+	Studentas studentas(vardas, "");
+	//studentas.setName(vardas);
 	EXPECT_EQ(studentas.getVardas(), "Vardenis");
 }
 TEST(studentasTest, egzaminasTest)
 {
 	string vardas = "Vardenis";
 	string pavarde = "Pavarde";
-	Studentas s;
-	s.setName(vardas);
-	s.setSurname(pavarde);
+	Studentas s(vardas, pavarde);
+	//s.setName(vardas);
+	//s.setSurname(pavarde);
 	int x = 5;
 	s.setEgz(x);
 	EXPECT_EQ(s.getEgz(), 5);
@@ -34,9 +34,9 @@ TEST(studentasTest, vidurkisTest)
 {
 	string vardas = "Vardenis";
 	string pavarde = "Pavarde";
-	Studentas s;
-	s.setName(vardas);
-	s.setSurname(pavarde);
+	Studentas s(vardas, pavarde);
+	//s.setName(vardas);
+	//s.setSurname(pavarde);
 	int paz;
 	for (int i = 0; i < 10; i++)
 	{
