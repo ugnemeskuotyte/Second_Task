@@ -1,5 +1,5 @@
-run: main.o generavimas.o inout.o rusiavimas.o skaic.o validacija.o studentas.o zmogus.o
-	g++ main.o generavimas.o inout.o rusiavimas.o skaic.o validacija.o studentas.o zmogus.o -o run -O3
+run: main.o generavimas.o inout.o rusiavimas.o skaic.o validacija.o studentas.o
+	g++ main.o generavimas.o inout.o rusiavimas.o skaic.o validacija.o studentas.o -o run -O3
 
 generavimas.o: generavimas.cpp
 	g++ -c generavimas.cpp -O3
@@ -18,9 +18,6 @@ validacija.o: validacija.cpp
 
 studentas.o: studentas.cpp
 	g++ -c studentas.cpp -O3
-
-zmogus.o: zmogus.cpp
-	g++ -c zmogus.cpp -O3
 
 main.o: main.cpp
 	g++ -c main.cpp -O3
